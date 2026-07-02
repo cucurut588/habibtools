@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tools By Habib · Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Courier New', monospace;
+        }
+
+        body {
+            background: radial-gradient(circle at 20% 20%, #0a0f0f, #030505);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .dashboard {
+            max-width: 820px;
+            width: 100%;
+            background: rgba(8, 20, 26, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1.5px solid #1effbc;
+            box-shadow: 0 0 40px rgba(0, 255, 200, 0.2), inset 0 0 30px rgba(0, 255, 200, 0.05);
+            border-radius: 48px 48px 32px 32px;
+            padding: 2rem 2rem 2.2rem;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        /* HEADER */
+        .header {
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #b3fff0, #00d4b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 18px #00d4b0aa;
+            word-break: break-word;
+        }
+
+        .header .sub-glow {
+            font-size: 1rem;
+            color: #9effe0;
+            background: #0d2626;
+            display: inline-block;
+            padding: 0.4rem 1.8rem;
+            border-radius: 40px;
+            border: 1px solid #2affc0;
+            letter-spacing: 1.5px;
+            margin-top: 8px;
+        }
+
+        /* WRAPPER BUTTON UTAMA (2 tombol sejajar) */
+        .btn-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2.2rem;
+        }
+
+        .btn-primary {
+            background: transparent;
+            border: 2px solid #1effbc;
+            color: #1effbc;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 0.9rem 2rem;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.25s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 200, 0.15);
+            letter-spacing: 1px;
+            backdrop-filter: blur(4px);
+            background: rgba(0, 255, 200, 0.04);
+            flex: 1 1 200px;
+            max-width: 280px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .btn-primary i {
+            color: #1effbc;
+            font-size: 1.3rem;
+        }
+
+        .btn-primary:hover {
+            background: #1effbc;
+            color: #0a1a1a;
+            box-shadow: 0 0 45px #1effbc88;
+            transform: scale(1.02);
+        }
+
+        .btn-primary:hover i {
+            color: #0a1a1a;
+        }
+
+        .btn-primary.tiktok-btn {
+            border-color: #ff0050;
+            color: #ff0050;
+            box-shadow: 0 0 20px rgba(255, 0, 80, 0.15);
+            background: rgba(255, 0, 80, 0.04);
+        }
+
+        .btn-primary.tiktok-btn i {
+            color: #ff0050;
+        }
+
+        .btn-primary.tiktok-btn:hover {
+            background: #ff0050;
+            color: #ffffff;
+            box-shadow: 0 0 45px #ff005088;
+        }
+
+        .btn-primary.tiktok-btn:hover i {
+            color: #ffffff;
+        }
+
+        /* INFO KONTAK */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem 3.5rem;
+            background: rgba(0, 20, 20, 0.4);
+            padding: 0.8rem 1.2rem;
+            border-radius: 60px;
+            border: 1px solid #1effbc55;
+            margin-bottom: 2.5rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .contact-info span {
+            color: #befff0;
+            font-size: 1.05rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-info i {
+            color: #1effbc;
+            margin-right: 10px;
+            width: 1.4rem;
+        }
+
+        /* GRID BUTTON 5 */
+        .grid-5 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.2rem;
+            margin-top: 0.8rem;
+        }
+
+        .btn-tool {
+            background: rgba(10, 30, 30, 0.7);
+            backdrop-filter: blur(4px);
+            border: 1.2px solid #1effbc88;
+            color: #d4fff0;
+            padding: 1.2rem 0.6rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.2s ease;
+            text-align: center;
+            box-shadow: 0 0 12px rgba(0, 255, 200, 0.05);
+            letter-spacing: 0.5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-tool i {
+            font-size: 1.6rem;
+            color: #1effbc;
+            margin-bottom: 4px;
+        }
+
+        .btn-tool:hover {
+            background: #1effbc;
+            color: #0a1414;
+            border-color: #1effbc;
+            box-shadow: 0 0 30px #1effbc66;
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        .btn-tool:hover i {
+            color: #0a1414;
+        }
+
+        .btn-tool.coming {
+            opacity: 0.7;
+            filter: grayscale(0.3);
+            cursor: default;
+        }
+
+        .btn-tool.coming:hover {
+            transform: none;
+            background: rgba(10, 30, 30, 0.7);
+            color: #d4fff0;
+            box-shadow: 0 0 12px rgba(0, 255, 200, 0.05);
+        }
+
+        .btn-tool.coming:hover i {
+            color: #1effbc;
+        }
+
+        .badge-coming {
+            font-size: 0.6rem;
+            background: #1a3a3a;
+            padding: 2px 12px;
+            border-radius: 40px;
+            color: #9effd0;
+            border: 1px solid #1effbc55;
+            margin-top: 4px;
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: 2.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #1effbc33;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem 2.5rem;
+            color: #86ccc0;
+            font-size: 0.9rem;
+            letter-spacing: 0.8px;
+        }
+
+        .footer i {
+            color: #1effbc;
+            margin-right: 6px;
+        }
+
+        .footer span {
+            opacity: 0.8;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            .dashboard {
+                padding: 1.5rem 1rem;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 0.6rem;
+                border-radius: 30px;
+                padding: 0.8rem;
+            }
+            .btn-primary {
+                font-size: 0.95rem;
+                padding: 0.7rem 1.2rem;
+                flex: 1 1 150px;
+            }
+            .grid-5 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .btn-wrapper {
+                gap: 0.7rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .grid-5 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard">
+
+        <!-- HEADER -->
+        <div class="header">
+            <h1>Tools By Habib</h1>
+            <div class="sub-glow">
+                <i class="fas fa-terminal" style="margin-right: 8px;"></i> 
+                ⚡ dark dashboard
+            </div>
+        </div>
+
+        <!-- BUTTON UTAMA (WA + TIKTOK) -->
+        <div class="btn-wrapper">
+            <!-- WhatsApp -->
+            <a href="https://wa.me/6287818838590" target="_blank" class="btn-primary">
+                <i class="fab fa-whatsapp"></i> 6287818838590
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@bibxzyy1" target="_blank" class="btn-primary tiktok-btn">
+                <i class="fab fa-tiktok"></i> @bibxzyy1
+            </a>
+        </div>
+
+        <!-- KONTAK (WA & TIKTOK) -->
+        <div class="contact-info">
+            <span><i class="fab fa-whatsapp"></i> 6287818838590</span>
+            <span><i class="fab fa-tiktok"></i> @bibxzyy1</span>
+        </div>
+
+        <!-- 5 BUTTON TOOLS -->
+        <div class="grid-5">
+
+            <!-- 1. Tiktok Downloader -->
+            <a href="tiktok-downloader.html" class="btn-tool" style="text-decoration: none;">
+                <i class="fab fa-tiktok"></i>
+                Tiktok Downloader
+            </a>
+
+            <!-- 2. Iphone Quote Generator -->
+            <a href="iphone-quote.html" class="btn-tool" style="text-decoration: none;">
+                <i class="fas fa-quote-right"></i>
+                Iphone Quote Generator
+            </a>
+
+            <!-- 3. Coming Soon -->
+            <div class="btn-tool coming">
+                <i class="fas fa-clock"></i>
+                Coming Soon
+                <span class="badge-coming">soon</span>
+            </div>
+
+            <!-- 4. Coming Soon -->
+            <div class="btn-tool coming">
+                <i class="fas fa-clock"></i>
+                Coming Soon
+                <span class="badge-coming">soon</span>
+            </div>
+
+            <!-- 5. Coming Soon -->
+            <div class="btn-tool coming">
+                <i class="fas fa-clock"></i>
+                Coming Soon
+                <span class="badge-coming">soon</span>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <span><i class="fas fa-code"></i> Developer: Habib</span>
+            <span><i class="fas fa-map-pin"></i> Asal: Daritadi</span>
+            <span><i class="far fa-calendar-alt"></i> 2026</span>
+        </div>
+
+    </div>
+
+</body>
+</html>
